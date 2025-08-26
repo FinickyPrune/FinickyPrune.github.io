@@ -61,7 +61,7 @@
             const blob = generateLargeBlob(5); // 5 MB
             const filename = "large-file.txt";
             const blobUrl = URL.createObjectURL(blob);
-            downloadBlob(blobUrl, filename);
+            // downloadBlob(blobUrl, filename);
             setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
         });
     </script>
