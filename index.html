@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Download Large Blob</h1>
-    <button id="generate-download">Download 5MB File</button>
+    <button id="generate-download">Download 20MB File</button>
 
     <script>
         function generateLargeBlob(sizeInMB) {
@@ -21,47 +21,11 @@
 
             return new Blob([data], { type: 'text/plain' });
         }
-
-        // function downloadBlob(blobUrl, filename) {
-        //     fetch(blobUrl)
-        //         .then(res => res.blob())
-        //         .then(blob => {
-        //             const reader = new FileReader();
-        //             reader.onload = function () {
-        //                 const base64Data = reader.result.split(',')[1];
-        //                 const chunkSize = 100 * 1024; // 100 KB
-        //                 const totalChunks = Math.ceil(base64Data.length / chunkSize);
-        //                 const transferId = Date.now().toString();
-
-        //                 for (let i = 0; i < totalChunks; i++) {
-        //                     const chunk = base64Data.slice(i * chunkSize, (i + 1) * chunkSize);
-
-        //                     // Send chunk to native code
-        //                     if (window.webkit?.messageHandlers?.downloadBlob) {
-        //                         window.webkit.messageHandlers.downloadBlob.postMessage({
-        //                             transferId: transferId,
-        //                             filename: filename,
-        //                             index: i,
-        //                             totalChunks: totalChunks,
-        //                             data: chunk
-        //                         });
-        //                     } else {
-        //                         console.warn("No native handler available");
-        //                     }
-        //                 }
-        //             };
-        //             reader.readAsDataURL(blob);
-        //         })
-        //         .catch(error => {
-        //             console.error("An error occurred while downloading file by blob url", error);
-        //         });
-        // }
-
+        
         document.getElementById("generate-download").addEventListener("click", function () {
-            const blob = generateLargeBlob(5); // 5 MB
+            const blob = generateLargeBlob(20); // 20 MB
             const filename = "large-file.txt";
             const blobUrl = URL.createObjectURL(blob);
-            // downloadBlob(blobUrl, filename);
             setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
         });
     </script>
