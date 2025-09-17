@@ -12,8 +12,16 @@
     <!-- Link that opens in a new tab -->
     <a href="https://finickyprune.github.io" target="_blank" rel="noopener noreferrer">Visit Example.com</a>
 
-    <h1>Click the Button to Visit Example.com</h1>
-    
+    <h1>onclick="window.open('https://finickyprune.github.io', '_blank')</h1>
     <button onclick="window.open('https://finickyprune.github.io', '_blank')">Visit Example.com</button>
+
+    <h1>onclick="window.location.href = 'https://finickyprune.github.io;"</h1>
+    <button onclick="window.location.href = 'https://finickyprune.github.io;">Visit Example.com</button>
+
+    <h1>Submit Form to Open in New Tab</h1>
+    <form action="https://finickyprune.github.io" method="GET" target="_blank">
+        <input type="text" name="query" placeholder="Enter Search Term">
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
