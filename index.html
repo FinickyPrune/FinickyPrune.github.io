@@ -1,45 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Download Large Blob Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage</title>
 </head>
 <body>
-    <h1>Download Large Blob</h1>
-    <button id="generate-download">Download 10MB File</button>
+    <h1>Welcome to My Simple Webpage</h1>
+    <p>This is a simple webpage that contains a link that will open in a new tab.</p>
 
-    <script>
-        function generateLargeBlob(sizeInMB) {
-            const size = sizeInMB * 1024 * 1024;
-            const chunk = 'A'.repeat(1024); // 1 KB of 'A's
-            const chunks = Math.ceil(size / chunk.length);
-            let data = '';
-
-            for (let i = 0; i < chunks; i++) {
-                data += chunk;
-            }
-
-            return new Blob([data], { type: 'text/plain' });
-        }
-
-        document.getElementById("generate-download").addEventListener("click", function () {
-            const blob = generateLargeBlob(10); // 10 MB
-            const filename = "large-file.txt";
-            const blobUrl = URL.createObjectURL(blob);
-
-            // Create an anchor element compatible with the global listener
-            const a = document.createElement('a');
-            a.href = blobUrl;
-            a.download = filename;
-
-            // Append, click, and clean up
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-
-            // Optional: revoke blob URL after a delay
-            setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
-        });
-    </script>
+    <!-- Link that opens in a new tab -->
+    <a href="https://www.example.com" target="_blank">Visit Example.com</a>
 </body>
 </html>
